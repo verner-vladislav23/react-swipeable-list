@@ -317,42 +317,42 @@ class SwipeableListItem extends PureComponent {
         this.listElement.style.transform = `translateX(${this.left}px)`;
       }
 
-      const opacity = (Math.abs(this.left) / 100).toFixed(2);
+      // const opacity = (Math.abs(this.left) / 100).toFixed(2);
 
-      if (this.props.onSwipeProgress && this.listElement) {
-        const listElementWidth = this.listElement.offsetWidth;
-        let swipeDistancePercent = this.previousSwipeDistancePercent;
+      // if (this.props.onSwipeProgress && this.listElement) {
+      //   const listElementWidth = this.listElement.offsetWidth;
+      //   let swipeDistancePercent = this.previousSwipeDistancePercent;
 
-        if (listElementWidth !== 0) {
-          const swipeDistance = Math.max(
-            0,
-            listElementWidth - Math.abs(this.left)
-          );
+      //   if (listElementWidth !== 0) {
+      //     const swipeDistance = Math.max(
+      //       0,
+      //       listElementWidth - Math.abs(this.left)
+      //     );
 
-          swipeDistancePercent =
-            100 - Math.round((100 * swipeDistance) / listElementWidth);
-        }
+      //     swipeDistancePercent =
+      //       100 - Math.round((100 * swipeDistance) / listElementWidth);
+      //   }
 
-        if (this.previousSwipeDistancePercent !== swipeDistancePercent) {
-          this.props.onSwipeProgress(swipeDistancePercent);
-          this.previousSwipeDistancePercent = swipeDistancePercent;
-        }
-      }
+      //   if (this.previousSwipeDistancePercent !== swipeDistancePercent) {
+      //     this.props.onSwipeProgress(swipeDistancePercent);
+      //     this.previousSwipeDistancePercent = swipeDistancePercent;
+      //   }
+      // }
 
-      if (opacity < 1 && opacity.toString() !== contentToShow.style.opacity) {
-        contentToShow.style.opacity = opacity.toString();
+      // if (opacity < 1 && opacity.toString() !== contentToShow.style.opacity) {
+      //   contentToShow.style.opacity = opacity.toString();
 
-        let contentToHide =
-          this.left < 0 ? this.contentRight : this.contentLeft;
+      //   let contentToHide =
+      //     this.left < 0 ? this.contentRight : this.contentLeft;
 
-        if (contentToHide) {
-          contentToHide.style.opacity = '0';
-        }
-      }
+      //   if (contentToHide) {
+      //     contentToHide.style.opacity = '0';
+      //   }
+      // }
 
-      if (opacity >= 1) {
-        contentToShow.style.opacity = '1';
-      }
+      // if (opacity >= 1) {
+      //   contentToShow.style.opacity = '1';
+      // }
 
       this.startTime = Date.now();
     }
